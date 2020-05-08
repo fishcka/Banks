@@ -2,15 +2,12 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 
-public class Main {
+public class ReaderResources {
 
-    public static final String PATHNAME = "C://11java/Banks_Statistics_2020.csv";
-    public static final String CHARSET_NAME = "windows-1251";
-
-    public static void main(String[] args) {
+    public void readRes() {
         try {
-            File file = new File(PATHNAME);
-            FileReader fr = new FileReader(file, Charset.forName(CHARSET_NAME));
+            File file = new File(getClass().getClassLoader().getResource("Banks_Statistics_2020.csv").getFile());
+            FileReader fr = new FileReader(file, Charset.forName(ReaderFileSystem.CHARSET_NAME));
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
             while (line != null) {
@@ -18,9 +15,11 @@ public class Main {
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found " + PATHNAME);
+            System.out.println("File not found ");
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (UnsupportedCharsetException e) {
+            System.out.println("we can't find charset " + e.getMessage());
         }
     }
 }
