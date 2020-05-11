@@ -19,7 +19,9 @@ public class ReaderResources {
             }
             reader.close();
             for (int i = 1; i < list.size(); i++) {
-                System.out.println(list.get(i));
+                if (i % 2 == 0) {
+                    System.out.println(list.get(i));
+                }
             }
 
         } catch (FileNotFoundException e) {
