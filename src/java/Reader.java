@@ -3,8 +3,8 @@ public class Reader {
 
     public static void main(String[] args) {
 
-        ReaderFileSystem ex1 = new ReaderFileSystem();
-        ex1.readFS();
+//        ReaderFileSystem ex1 = new ReaderFileSystem();
+//        ex1.readFS();
 
         System.out.println();
 

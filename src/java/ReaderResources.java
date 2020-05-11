@@ -1,6 +1,8 @@
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReaderResources {
 
@@ -10,10 +12,16 @@ public class ReaderResources {
             FileReader fr = new FileReader(file, Charset.forName(ReaderFileSystem.CHARSET_NAME));
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
+            List<String> list = new ArrayList<>();
             while (line != null) {
-                System.out.println(line);
+                list.add(line);
                 line = reader.readLine();
             }
+            reader.close();
+            for (int i = 1; i < list.size(); i++) {
+                System.out.println(list.get(i));
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found ");
         } catch (IOException e) {
