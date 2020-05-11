@@ -18,10 +18,11 @@ public class ReaderResources {
                 line = reader.readLine();
             }
             reader.close();
-            for (int i = 1; i < list.size(); i++) {
-                if (i % 2 == 0) {
-                    System.out.println(list.get(i));
+            for (String item : list) {
+                if (list.indexOf(item) == 0){
+                    continue;
                 }
+                System.out.println(item);
             }
 
         } catch (FileNotFoundException e) {
