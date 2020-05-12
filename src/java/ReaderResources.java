@@ -19,10 +19,13 @@ public class ReaderResources {
             }
             reader.close();
             for (String item : list) {
-                if (list.indexOf(item) == 0){
+                int rowNum = list.indexOf(item);
+                if (rowNum == 0){
                     continue;
                 }
-                System.out.println(item);
+                if (rowNum % 2 == 0) {
+                    System.out.println(rowNum + " " + item);
+                }
             }
 
         } catch (FileNotFoundException e) {
